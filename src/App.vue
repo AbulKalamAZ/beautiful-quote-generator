@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <button @click="con('appQuote')">Quote</button>
+    <button @click="con('appAuthor')">Author</button>
+    <button @click="con('appNew')">New</button>
+    <hr>
+    <component v-bind:is="selectedComponent"></component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Quote from "./components/Quote";
+import Author from "./components/Author";
+import New from "./components/New";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    app: "Quote",
+    appAuthor: "Author",
+    appNew: "New"
+  },
+  data() {
+    return {
+      selectedComponent: "appQuote"
+    };
+  },
+  methods: {
+    con(data) {
+      this.selectedComponent = data;
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
+
