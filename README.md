@@ -1,4 +1,4 @@
-# quotes
+# Beautiful Quotes Generator
 
 ## Project setup
 ```
